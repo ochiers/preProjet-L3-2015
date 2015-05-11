@@ -5,11 +5,18 @@ import javax.swing.*;
 
 	 
 public class Fenetre implements Runnable {
+	
+	//variables globales
 	public static JFrame frame = new JFrame(" Gaufre Empoisonnée ");
+	public int menu = 0;
+	public int player = 1;
+	public int level = 2;
+	public int gaufre = 3;
+	public int end = 4;
 	
 	public void run(){             
 
-		frame.setSize(500, 500);      
+		frame.setSize(1000, 1000);      
 		
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
@@ -28,6 +35,11 @@ public class Fenetre implements Runnable {
 		JButton help = new JButton(" Aide ");
 		help.setSize(100, 100);
 		help.setLocation(850, 850);
+		
+		//ecouteur de souris
+        newGame.addMouseListener(new EcSouris(0));
+        quit.addMouseListener(new EcSouris(1));
+        help.addMouseListener(new EcSouris(2));
 		
 		//ajout a panel
 		panelAccueil.add(LaGE);
