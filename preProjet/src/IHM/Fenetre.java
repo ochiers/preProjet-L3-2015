@@ -2,6 +2,7 @@ package IHM;
 
 import java.awt.*;
 import javax.swing.*;
+
 	 
 public class Fenetre implements Runnable {
 	public void run(){             
