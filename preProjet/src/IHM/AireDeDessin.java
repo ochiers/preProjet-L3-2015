@@ -5,11 +5,13 @@ import javax.swing.*;
 
 class AireDeDessin extends JComponent {
     int x,y;
+    FenetreV2 fenetre;
 
     
-    public AireDeDessin() {
-        x=7;
-        y=5;
+    public AireDeDessin(FenetreV2 f,int largeur,int hauteur) {
+        x=largeur;
+        y=hauteur;
+        fenetre=f;
        setPreferredSize(new Dimension(500,500));
     }
 
