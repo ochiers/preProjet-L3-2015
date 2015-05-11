@@ -15,5 +15,6 @@ public class JeuGaufreV2 {
 		FenetreV2 f=new FenetreV2(e);
 		e.nouvellePartie(f, p1, p2, 7, 5);
 		SwingUtilities.invokeLater(f);
+		e.begin();
 	}
 }

@@ -23,7 +23,7 @@ public class EcouteurDeSouris implements MouseListener{
 			Point p=new Point();
 			p.x=1;
 			p.y=1;
-			if(aire.fenetre.e.partieCourante.joueurCourant.aiPlayer){
+			if(aire.fenetre.e.partieCourante.joueurCourant.aiPlayer == false){
 				((HumanPlayer)aire.fenetre.e.partieCourante.joueurCourant).setCaseJouee(p);
 				System.out.println("bonjour");
 			}
