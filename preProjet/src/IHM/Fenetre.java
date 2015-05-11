@@ -5,7 +5,7 @@ import javax.swing.*;
 
 	 
 public class Fenetre implements Runnable {
-	public JFrame frame = new JFrame(" Gaufre Empoisonnée ");
+	public static JFrame frame = new JFrame(" Gaufre Empoisonnée ");
 	
 	public void run(){             
 
@@ -25,16 +25,14 @@ public class Fenetre implements Runnable {
 		JButton help = new JButton(" Aide ");
 		help.setSize(100, 100);
 		help.setLocation(850, 850);
-		
-
+		//ajout a panel
 		panelAccueil.add(LaGE);
 		panelAccueil.add(newGame);
 		panelAccueil.add(quit);
 		panelAccueil.add(help);
-
-		//
+		//ajout a la frame
 		panelAccueil.setBackground(Color.WHITE);        
- 		frame.add(panelAccueil);               
+ 		frame.add(panelAccueil);
 		frame.setVisible(true);
 	}
 }
