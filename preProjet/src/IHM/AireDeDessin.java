@@ -4,14 +4,13 @@ import java.awt.*;
 import javax.swing.*;
 
 class AireDeDessin extends JComponent {
-    String message;
-    Point center = null;
     int x,y;
 
+    
     public AireDeDessin() {
-        message = new String("Gaufre Empoisonnée");
         x=7;
         y=5;
+       setPreferredSize(new Dimension(500,500));
     }
 
     public void paintComponent(Graphics g) {
@@ -20,19 +19,13 @@ class AireDeDessin extends JComponent {
         int width = getSize().width;
         int height = getSize().height;
 
-        if (center == null) {
-            center = new Point(width/2, height/2);
-        }
-        int ray = 50;
-
         drawable.setPaint(Color.white);
         drawable.fillRect(0, 0, width, height);
         drawable.setPaint(Color.black);
 
-        drawable.drawString(message, 00, 10);
         dessinGrille(drawable);
     }
-    
+
     public void dessinGrille(Graphics2D drawable){
     	int width = getSize().width;
         int height = getSize().height;

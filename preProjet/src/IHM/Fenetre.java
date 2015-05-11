@@ -9,7 +9,8 @@ public class Fenetre implements Runnable {
 	
 	public void run(){             
 
-		frame.setSize(1000, 1000);      
+		frame.setSize(500, 500);      
+		
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
 		panelAccueil.setLayout(null);
@@ -36,6 +37,7 @@ public class Fenetre implements Runnable {
 		
 		//ajout a la frame
 		panelAccueil.setBackground(Color.WHITE);        
+
  		frame.add(panelAccueil);
 		frame.setVisible(true);
 		
