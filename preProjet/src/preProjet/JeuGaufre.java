@@ -1,6 +1,6 @@
 package preProjet;
 
-public class main {
+public class JeuGaufre {
 	public static void main(String argv[]){
 		
 	}
