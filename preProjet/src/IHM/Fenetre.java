@@ -13,6 +13,8 @@ public class Fenetre implements Runnable {
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
 		panelAccueil.setLayout(null);
+		
+		//creation objets
 		JLabel LaGE = new JLabel(" La Gaufre Empoisonnée. ");
 		LaGE.setSize(300, 40);
 		LaGE.setLocation(400, 80);
@@ -25,18 +27,19 @@ public class Fenetre implements Runnable {
 		JButton help = new JButton(" Aide ");
 		help.setSize(100, 100);
 		help.setLocation(850, 850);
+		
 		//ajout a panel
 		panelAccueil.add(LaGE);
 		panelAccueil.add(newGame);
 		panelAccueil.add(quit);
 		panelAccueil.add(help);
+		
 		//ajout a la frame
 		panelAccueil.setBackground(Color.WHITE);        
  		frame.add(panelAccueil);
 		frame.setVisible(true);
-	}
-}
-
+		
+		
 
 /*
 		//panel choix des joueurs
@@ -51,3 +54,9 @@ public class Fenetre implements Runnable {
 		//panel fin de partie
 		JPanel panelFin = new JPanel();
 */
+
+		
+		
+	}
+}
+
