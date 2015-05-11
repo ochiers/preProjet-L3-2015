@@ -1,0 +1,1 @@
+Matin : Amphi de lancement, formation des groupes, definition de la structure du projet (packages).
