@@ -5,7 +5,11 @@ Lundi 11/05/15
 		de bouton pour la gestion des interactions Homme-Machine.
 
 	Ochier Sébastien / Soulier Clément
-
+		Moteur :  Implémentation du corps du jeu, de la gestion du vainqueur.
+				  La partie a besoin de connaitre les joueurs pour être créer ainsi que de la gaufre.
+				  Dès qu'une case est choisie, la gaufre est grignotée sur toute la partie inférieur droite.
+				  Le fonctionnement d'une partie ne dépend pas de l'ihm, ne effet, on peut faire fonctionner le jeu en mode texte.
+				  Un joueur dit "humain" peut être saisi ou cliqué, l'AI renvoie directement une case à jouée.
 
 	Berne Corentin / Fernandes Jérémy
 
