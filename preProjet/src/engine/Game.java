@@ -6,11 +6,12 @@ import IHM.Fenetre;
 
 public class Game {
 
-	boolean finish;
-	Player J1, J2, winner;
-	Gaufre map;
-	int numberTurn;
-	Fenetre display;
+	public boolean finish;
+	public Player J1, J2, joueurCourant,winner;
+	public Gaufre map;
+	public int numberTurn;
+	public Fenetre display;
+
 	public Game(Fenetre f, int largeur, int hauteur, Player j1, Player j2) {
 		this.finish = false;
 		this.J1 = j1;
@@ -22,15 +23,22 @@ public class Game {
 
 	public void jouer() {
 		while (!finish) {
-			Point caseJouee;
-			if (numberTurn % 2 == 0)
-				caseJouee = J1.play();
-			else
-				caseJouee = J2.play();
+			Point caseJouee = null;
+			while (caseJouee == null || map.grille[caseJouee.x][caseJouee.y] == Gaufre.EMPOISONNEE || map.grille[caseJouee.x][caseJouee.y] == Gaufre.MANGEE) {
+				if (numberTurn % 2 == 0) {
+					joueurCourant = J1;
+					caseJouee = J1.play();
+				} else {
+					joueurCourant = J2;
+					caseJouee = J2.play();
+				}
+			}
 			mangerGaufre(caseJouee);
 			finish = isTerminated();
 		}
-		display.r
+		//display.frame.repaint();
+		System.out.print(joueurCourant.toString());
+		
 		if (numberTurn % 2 == 0)
 			winner = J1;
 		else

@@ -1,9 +1,7 @@
 package IHM;
 
 import java.awt.*;
-
 import javax.swing.*;
-import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
 	 
 public class Fenetre implements Runnable {
@@ -11,25 +9,32 @@ public class Fenetre implements Runnable {
 	
 	public void run(){             
 
-		this.frame.setSize(1000, 1000);      
+		frame.setSize(1000, 1000);      
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
+		panelAccueil.setLayout(null);
 		JLabel LaGE = new JLabel(" La Gaufre Empoisonnée. ");
+		LaGE.setSize(300, 40);
+		LaGE.setLocation(400, 80);
 		JButton newGame = new JButton(" Nouvelle Partie ");
+		newGame.setSize(200, 50);
+		newGame.setLocation(400, 400);
 		JButton quit = new JButton(" Quitter ");
-		ImageIcon pointInterro = new ImageIcon("http://cdns2.freepik.com/photos-libre/question-bulle_318-77793.jpg");
-		JButton help = new JButton(" Aide ", pointInterro);
+		quit.setSize(100, 50);
+		quit.setLocation(450, 600);
+		JButton help = new JButton(" Aide ");
+		help.setSize(100, 100);
+		help.setLocation(850, 850);
 		
-	//	panelAccueil.add(LaGE);
-	//	panelAccueil.add(newGame);
-	//	panelAccueil.add(quit);
-	//	panelAccueil.add(help);
-		
-		AireDeDessin monDessin = new AireDeDessin();
-		//panelAccueil.setBackground(Color.WHITE);   
-		panelAccueil.add(monDessin);
- 		frame.add(panelAccueil);  
- 	//	frame.add(monDessin);
+
+		panelAccueil.add(LaGE);
+		panelAccueil.add(newGame);
+		panelAccueil.add(quit);
+		panelAccueil.add(help);
+
+		//
+		panelAccueil.setBackground(Color.WHITE);        
+ 		frame.add(panelAccueil);               
 		frame.setVisible(true);
 	}
 }
