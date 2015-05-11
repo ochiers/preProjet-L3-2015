@@ -7,12 +7,10 @@ import java.awt.event.MouseListener;
 public class EcSouris implements MouseListener{
 	    
 	    public EcSouris(int n) {
-	    	//...
 	    	System.out.println("ok Ec");
 	    }
 
 	    public void mouseClicked(MouseEvent e) {
-	    	//...
 	    	System.out.println("ok cliqué");
 	    }
 
