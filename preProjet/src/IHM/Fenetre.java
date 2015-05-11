@@ -8,7 +8,8 @@ public class Fenetre implements Runnable {
 	public JFrame frame = new JFrame(" Gaufre Empoisonnée ");
 	
 	public void run(){             
-		this.frame.setSize(1000, 1000);      
+
+		frame.setSize(1000, 1000);      
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
 		JLabel LaGE = new JLabel(" La Gaufre Empoisonnée. ");
@@ -17,11 +18,13 @@ public class Fenetre implements Runnable {
 		ImageIcon pointInterro = new ImageIcon("http://cdns2.freepik.com/photos-libre/question-bulle_318-77793.jpg");
 		JButton help = new JButton(" Aide ", pointInterro);
 		
-		panelAccueil.add(LaGE, BorderLayout.NORTH);
-		panelAccueil.add(newGame, BorderLayout.CENTER);
-		panelAccueil.add(quit, BorderLayout.CENTER);
-		panelAccueil.add(help, BorderLayout.SOUTH);
+		panelAccueil.setLayout(new BorderLayout());
 		
+		panelAccueil.add(LaGE, BorderLayout.NORTH);
+		panelAccueil.add(newGame, BorderLayout.WEST);
+		panelAccueil.add(quit, BorderLayout.EAST);
+		panelAccueil.add(help, BorderLayout.PAGE_END);
+
 		//
 		panelAccueil.setBackground(Color.WHITE);        
  		frame.add(panelAccueil);               
