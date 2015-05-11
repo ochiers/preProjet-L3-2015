@@ -3,13 +3,14 @@ package AI;
 import java.awt.Point;
 import java.util.Random;
 
+import engine.Engine;
 import engine.Gaufre;
 import engine.Player;
 
 public class EasyAI extends Player {
 	
-	public EasyAI(Gaufre gaufre, boolean isAI, String name) {
-		super(gaufre, isAI, name);
+	public EasyAI(Engine engine, boolean isAI, String name) {
+		super(engine, isAI, name);
 	}
 
 	@Override
@@ -17,9 +18,10 @@ public class EasyAI extends Player {
 		Random r = new Random();
 		int x = 0;
 		int y = 0;
-		while(laGaufre.grille[x][y] != Gaufre.LIBRE){
-			x = r.nextInt(laGaufre.largeur);
-			y = r.nextInt(laGaufre.hauteur);
+		Gaufre g = leMoteur.partieCourante.map;
+		while(g.grille[x][y] != Gaufre.LIBRE){
+			x = r.nextInt(g.largeur);
+			y = r.nextInt(g.hauteur);
 		}
 		
 		return new Point(x,y);
