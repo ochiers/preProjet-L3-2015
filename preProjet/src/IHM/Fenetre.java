@@ -1,14 +1,16 @@
 package IHM;
 
 import java.awt.*;
+
 import javax.swing.*;
+import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
 	 
 public class Fenetre implements Runnable {
-	JFrame frame = new JFrame(" Gaufre Empoisonnée ");
+	public JFrame frame = new JFrame(" Gaufre Empoisonnée ");
 	
 	public void run(){             
-		frame.setSize(1000, 1000);      
+		this.frame.setSize(1000, 1000);      
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
 		JLabel LaGE = new JLabel(" La Gaufre Empoisonnée. ");
