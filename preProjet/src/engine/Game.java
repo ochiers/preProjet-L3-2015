@@ -22,9 +22,11 @@ public class Game {
 	}
 
 	public void jouer() {
+
 		while (!finish) {
 			Point caseJouee = null;
-			while (caseJouee == null || map.grille[caseJouee.x][caseJouee.y] == Gaufre.EMPOISONNEE || map.grille[caseJouee.x][caseJouee.y] == Gaufre.MANGEE) {
+			while (isCaseInvalide(caseJouee)) {
+
 				if (numberTurn % 2 == 0) {
 					joueurCourant = J1;
 					caseJouee = J1.play();
@@ -33,8 +35,11 @@ public class Game {
 					caseJouee = J2.play();
 				}
 			}
+			System.out.println(caseJouee);
 			mangerGaufre(caseJouee);
+			numberTurn++;
 			finish = isTerminated();
+
 		}
 		//display.frame.repaint();
 		System.out.print(joueurCourant.toString());
@@ -49,7 +54,6 @@ public class Game {
 
 		for (int i = caseJouee.x; i < this.map.largeur; i++)
 			for (int j = caseJouee.y; j < this.map.hauteur; j++)
-				if (i != 0 && j != 0)
 					this.map.setCase(new Point(i, j), Gaufre.MANGEE);
 
 	}
@@ -58,5 +62,9 @@ public class Game {
 
 		return (map.grille[0][1] == Gaufre.MANGEE && map.grille[1][0] == Gaufre.MANGEE && map.grille[1][1] == Gaufre.MANGEE);
 	}
-
+	
+	private boolean isCaseInvalide(Point c){
+		
+		return c == null || c.x <  0 || c.y < 0 || c.x >= this.map.largeur || c.y >= this.map.hauteur || map.grille[c.x][c.y] == Gaufre.EMPOISONNEE || map.grille[c.x][c.y] == Gaufre.MANGEE;
+	}
 }
