@@ -17,7 +17,7 @@ public class EasyAI extends Player {
 		Random r = new Random();
 		int x = 0;
 		int y = 0;
-		while(laGaufre.grille[x][y] != 0){
+		while(laGaufre.grille[x][y] != Gaufre.LIBRE){
 			x = r.nextInt(laGaufre.largeur);
 			y = r.nextInt(laGaufre.hauteur);
 		}
