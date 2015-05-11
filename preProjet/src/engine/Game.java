@@ -6,11 +6,11 @@ import IHM.Fenetre;
 
 public class Game {
 
-	boolean finish;
-	Player J1, J2, joueurCourant,winner;
-	Gaufre map;
-	int numberTurn;
-	Fenetre display;
+	public boolean finish;
+	public Player J1, J2, joueurCourant,winner;
+	public Gaufre map;
+	public int numberTurn;
+	public Fenetre display;
 
 	public Game(Fenetre f, int largeur, int hauteur, Player j1, Player j2) {
 		this.finish = false;

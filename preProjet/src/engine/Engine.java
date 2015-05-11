@@ -5,8 +5,8 @@ import IHM.Fenetre;
 
 public class Engine {
 
-	boolean gameInProgress;
-	Game partieCourante;
+	public boolean gameInProgress;
+	public Game partieCourante;
 	public Engine() {
 		this.gameInProgress = false;
 	}
