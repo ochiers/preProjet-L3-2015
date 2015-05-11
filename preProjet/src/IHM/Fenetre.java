@@ -9,10 +9,11 @@ public class Fenetre implements Runnable {
 	
 	public void run(){             
 
-		frame.setSize(1000, 1000);      
+		frame.setSize(500, 500);      
+		
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
-		panelAccueil.setLayout(null);
+	/*	panelAccueil.setLayout(null);
 		JLabel LaGE = new JLabel(" La Gaufre Empoisonnée. ");
 		LaGE.setSize(300, 40);
 		LaGE.setLocation(400, 80);
@@ -32,9 +33,20 @@ public class Fenetre implements Runnable {
 		panelAccueil.add(quit);
 		panelAccueil.add(help);
 
-		//
+		
 		panelAccueil.setBackground(Color.WHITE);        
- 		frame.add(panelAccueil);               
+ 		*/
+		JMenuBar menuBar=new JMenuBar();
+		JMenu menu1 = new JMenu("Fichier");
+		JMenuItem menui1=new JMenuItem("New");
+		menu1.add(menui1);
+		
+		menuBar.add(menu1);
+		frame.setJMenuBar(menuBar);
+ 		AireDeDessin monDessin = new AireDeDessin();
+ 		panelAccueil.add(monDessin);
+ 		frame.add(panelAccueil);   
+ 		//frame.pack();
 		frame.setVisible(true);
 	}
 }
