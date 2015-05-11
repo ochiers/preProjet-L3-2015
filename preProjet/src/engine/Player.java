@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public abstract class Player {
 	
-	boolean aiPlayer;
+	public boolean aiPlayer;
 	public String name;
 	public Engine leMoteur;
 	public Player(Engine gaufre, boolean isAI, String name)
