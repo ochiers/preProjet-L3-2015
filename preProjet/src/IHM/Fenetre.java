@@ -1,9 +1,7 @@
 package IHM;
 
 import java.awt.*;
-
 import javax.swing.*;
-import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
 	 
 public class Fenetre implements Runnable {
@@ -19,10 +17,10 @@ public class Fenetre implements Runnable {
 		ImageIcon pointInterro = new ImageIcon("http://cdns2.freepik.com/photos-libre/question-bulle_318-77793.jpg");
 		JButton help = new JButton(" Aide ", pointInterro);
 		
-		panelAccueil.add(LaGE);
-		panelAccueil.add(newGame);
-		panelAccueil.add(quit);
-		panelAccueil.add(help);
+		panelAccueil.add(LaGE, BorderLayout.NORTH);
+		panelAccueil.add(newGame, BorderLayout.CENTER);
+		panelAccueil.add(quit, BorderLayout.CENTER);
+		panelAccueil.add(help, BorderLayout.SOUTH);
 		
 		//
 		panelAccueil.setBackground(Color.WHITE);        
