@@ -1,19 +1,17 @@
 package IHM;
 
-import java.awt.Color; 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 	 
-public class Fenetre extends JFrame {
-	public Fenetre(){             
-		this.setTitle("Ma première fenêtre Java");
-		this.setSize(400, 100);
-		this.setLocationRelativeTo(null);               
-		JPanel pan = new JPanel();
+public class Fenetre implements Runnable {
+	public void run(){             
+		JFrame frame = new JFrame(" Gauffre Empoisonnée ");
+		frame.setSize(500, 500);      
+		JPanel panel = new JPanel();
 		//Définition de sa couleur de fond
-		pan.setBackground(Color.WHITE);        
+		panel.setBackground(Color.WHITE);        
 		//On prévient notre JFrame que notre JPanel sera son content pane
-		this.setContentPane(pan);               
-		this.setVisible(true);
+		frame.setContentPane(panel);               
+		frame.setVisible(true);
 	}
 }
