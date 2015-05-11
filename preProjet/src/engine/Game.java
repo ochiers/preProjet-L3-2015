@@ -2,19 +2,22 @@ package engine;
 
 import java.awt.Point;
 
+import IHM.Fenetre;
+
 public class Game {
 
 	boolean finish;
 	Player J1, J2, winner;
 	Gaufre map;
 	int numberTurn;
-
-	public Game(int largeur, int hauteur, Player j1, Player j2) {
+	Fenetre display;
+	public Game(Fenetre f, int largeur, int hauteur, Player j1, Player j2) {
 		this.finish = false;
 		this.J1 = j1;
 		this.J2 = j2;
 		this.map = new Gaufre(largeur, hauteur);
 		this.numberTurn = 0;
+		display = f;
 	}
 
 	public void jouer() {
@@ -27,7 +30,7 @@ public class Game {
 			mangerGaufre(caseJouee);
 			finish = isTerminated();
 		}
-
+		display.r
 		if (numberTurn % 2 == 0)
 			winner = J1;
 		else
