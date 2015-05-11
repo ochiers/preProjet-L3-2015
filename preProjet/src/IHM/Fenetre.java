@@ -20,15 +20,16 @@ public class Fenetre implements Runnable {
 		ImageIcon pointInterro = new ImageIcon("http://cdns2.freepik.com/photos-libre/question-bulle_318-77793.jpg");
 		JButton help = new JButton(" Aide ", pointInterro);
 		
-		panelAccueil.add(LaGE);
-		panelAccueil.add(newGame);
-		panelAccueil.add(quit);
-		panelAccueil.add(help);
+	//	panelAccueil.add(LaGE);
+	//	panelAccueil.add(newGame);
+	//	panelAccueil.add(quit);
+	//	panelAccueil.add(help);
 		
-		
-		//
-		panelAccueil.setBackground(Color.WHITE);        
- 		frame.add(panelAccueil);               
+		AireDeDessin monDessin = new AireDeDessin();
+		//panelAccueil.setBackground(Color.WHITE);   
+		panelAccueil.add(monDessin);
+ 		frame.add(panelAccueil);  
+ 	//	frame.add(monDessin);
 		frame.setVisible(true);
 	}
 }

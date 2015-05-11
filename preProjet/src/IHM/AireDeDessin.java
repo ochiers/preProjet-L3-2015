@@ -1,6 +1,7 @@
 package IHM;
 
 import java.awt.*;
+
 import javax.swing.*;
 
 class AireDeDessin extends JComponent {
@@ -10,7 +11,7 @@ class AireDeDessin extends JComponent {
 
     public AireDeDessin() {
         message = new String("Gaufre Empoisonnée");
-        x=3;
+        x=7;
         y=5;
     }
 
@@ -31,6 +32,24 @@ class AireDeDessin extends JComponent {
 
         drawable.drawString(message, 00, 10);
         dessinGrille(drawable);
+        //barre1();
+        //JButton newGame = new JButton(" Nouvelle Partie ");
+        //newGame.paint(drawable);
+    }
+    
+    public void barre1(){
+    	JPanel panelAccueil = new JPanel();
+		JLabel LaGE = new JLabel(" La Gaufre Empoisonnée. ");
+		JButton newGame = new JButton(" Nouvelle Partie ");
+		JButton quit = new JButton(" Quitter ");
+		ImageIcon pointInterro = new ImageIcon("http://cdns2.freepik.com/photos-libre/question-bulle_318-77793.jpg");
+		JButton help = new JButton(" Aide ", pointInterro);
+		
+		panelAccueil.add(LaGE);
+		panelAccueil.add(newGame);
+		panelAccueil.add(quit);
+		panelAccueil.add(help);
+    	
     }
     
     public void dessinGrille(Graphics2D drawable){
