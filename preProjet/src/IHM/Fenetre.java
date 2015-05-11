@@ -31,9 +31,9 @@ public class Fenetre implements Runnable {
 		help.setBounds(850, 850, 100, 100);
 		
 		//ecouteur de souris
-        newGame.addMouseListener(new EcSouris(0));
-        quit.addMouseListener(new EcSouris(1));
-        help.addMouseListener(new EcSouris(2));
+        newGame.addActionListener(new EcBouton());
+        quit.addActionListener(new EcBouton());
+        help.addActionListener(new EcBouton());
 		
 		//ajout a panel
 		panelAccueil.add(LaGE);
