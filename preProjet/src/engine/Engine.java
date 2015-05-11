@@ -1,5 +1,6 @@
 package engine;
 
+import AI.EasyAI;
 import IHM.Fenetre;
 
 public class Engine {
@@ -34,5 +35,11 @@ public class Engine {
 	{
 		this.gameInProgress = true;
 		this.partieCourante = new Game(f,largeur, hauteur, p1, p2);
+	}
+	
+	public static void main(String args[])
+	{
+		Engine e = new Engine();
+		//e.nouvellePartie(null, new EasyAI(gaufre, isAI, name)
 	}
 }

@@ -36,7 +36,9 @@ public class Game {
 			mangerGaufre(caseJouee);
 			finish = isTerminated();
 		}
-		display.frame.repaint();
+		//display.frame.repaint();
+		System.out.print(joueurCourant.toString());
+		
 		if (numberTurn % 2 == 0)
 			winner = J1;
 		else
