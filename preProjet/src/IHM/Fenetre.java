@@ -5,7 +5,7 @@ import javax.swing.*;
 
 	 
 public class Fenetre implements Runnable {
-	public JFrame frame = new JFrame(" Gaufre Empoisonnée ");
+	public static JFrame frame = new JFrame(" Gaufre Empoisonnée ");
 	
 	public void run(){             
 
@@ -13,7 +13,7 @@ public class Fenetre implements Runnable {
 		
 		//panel d'accueil
 		JPanel panelAccueil = new JPanel();
-	/*	panelAccueil.setLayout(null);
+		panelAccueil.setLayout(null);
 		JLabel LaGE = new JLabel(" La Gaufre Empoisonnée. ");
 		LaGE.setSize(300, 40);
 		LaGE.setLocation(400, 80);
@@ -26,27 +26,15 @@ public class Fenetre implements Runnable {
 		JButton help = new JButton(" Aide ");
 		help.setSize(100, 100);
 		help.setLocation(850, 850);
-		
-
+		//ajout a panel
 		panelAccueil.add(LaGE);
 		panelAccueil.add(newGame);
 		panelAccueil.add(quit);
 		panelAccueil.add(help);
-
-		
+		//ajout a la frame
 		panelAccueil.setBackground(Color.WHITE);        
- 		*/
-		JMenuBar menuBar=new JMenuBar();
-		JMenu menu1 = new JMenu("Fichier");
-		JMenuItem menui1=new JMenuItem("New");
-		menu1.add(menui1);
-		
-		menuBar.add(menu1);
-		frame.setJMenuBar(menuBar);
- 		AireDeDessin monDessin = new AireDeDessin();
- 		panelAccueil.add(monDessin);
- 		frame.add(panelAccueil);   
- 		//frame.pack();
+
+ 		frame.add(panelAccueil);
 		frame.setVisible(true);
 	}
 }

@@ -1,7 +1,6 @@
 package IHM;
 
 import java.awt.*;
-
 import javax.swing.*;
 
 class AireDeDessin extends JComponent {
@@ -15,7 +14,7 @@ class AireDeDessin extends JComponent {
     }
 
     public void paintComponent(Graphics g) {
-        Graphics2D drawable = (Graphics2D) g;
+    	Graphics2D drawable = (Graphics2D) g;
 
         int width = getSize().width;
         int height = getSize().height;
@@ -26,7 +25,7 @@ class AireDeDessin extends JComponent {
 
         dessinGrille(drawable);
     }
-     
+
     public void dessinGrille(Graphics2D drawable){
     	int width = getSize().width;
         int height = getSize().height;
