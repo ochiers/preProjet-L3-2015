@@ -7,8 +7,8 @@ public class HumanPlayer extends Player {
 	private boolean hasPlayed;
 	private Point caseJouee;
 
-	public HumanPlayer(Gaufre gaufre, boolean isAI, String name) {
-		super(gaufre, isAI, name);
+	public HumanPlayer(Engine moteur, boolean isAI, String name) {
+		super(moteur, isAI, name);
 		hasPlayed = false;
 	}
 

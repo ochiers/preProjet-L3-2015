@@ -6,13 +6,19 @@ public abstract class Player {
 	
 	boolean aiPlayer;
 	public String name;
-	public Gaufre laGaufre;
-	public Player(Gaufre gaufre, boolean isAI, String name)
+	public Engine leMoteur;
+	public Player(Engine gaufre, boolean isAI, String name)
 	{
 		this.aiPlayer = isAI;
 		this.name = name;
-		this.laGaufre = gaufre;
+		this.leMoteur = gaufre;
 	}
 
 	public abstract Point play();
+	
+	public String toString()
+	{
+		
+		return "Je suis " + name;
+	}
 }
