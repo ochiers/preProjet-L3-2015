@@ -10,8 +10,8 @@ public class JeuGaufreV2 {
 	public static void main(String argv[]) throws InterruptedException{
 		
 		Engine e=new Engine();
-		HardAI p1=new HardAI(e,true,"player1");
-		MediumAI p2=new MediumAI(e,true,"player2");
+		Player p1=new HumanPlayer(e,false,"player1");
+		Player p2=new HumanPlayer(e,false,"player2");
 		
 		FenetreV2 f=new FenetreV2(e);
 		e.setAffichage(f);

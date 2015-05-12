@@ -15,6 +15,7 @@ public class EasyAI extends Player {
 
 	@Override
 	public Point play(){
+		System.out.println("IA EASY");
 		Random r = new Random();
 		int x = 0;
 		int y = 0;

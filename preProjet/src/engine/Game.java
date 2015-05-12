@@ -80,8 +80,8 @@ public class Game {
 
 		System.out.println("Debut annuler " + map);
 		this.map = annuler_refaire.undo();
-		if(joueurCourant instanceof HumanPlayer)
-			((HumanPlayer)joueurCourant).setCaseJouee(new Point(0,0));
+		if (joueurCourant instanceof HumanPlayer)
+			((HumanPlayer) joueurCourant).setCaseJouee(new Point(0, 0));
 		if (joueurCourant == J2)
 			joueurCourant = J1;
 		else
@@ -93,6 +93,8 @@ public class Game {
 
 	public void refaire() {
 		this.map = annuler_refaire.redo();
+		if (joueurCourant instanceof HumanPlayer)
+			((HumanPlayer) joueurCourant).setCaseJouee(new Point(0, 0));
 		if (joueurCourant == J2)
 			joueurCourant = J1;
 		else

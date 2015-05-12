@@ -39,22 +39,7 @@ public class UndoRedo<T> {
 	}
 
 	public boolean canUndo() {
-		return !annuler.isEmpty();
+		return !annuler.isEmpty() && annuler.size() >= 2;
 	}
 
-	
-	public static void main(String[] args){
-		
-		UndoRedo<Integer> s = new UndoRedo<Integer>();
-		s.addItem(4);
-		s.addItem(1);
-		s.addItem(8);
-		System.out.println(s.undo());
-		System.out.println(s.undo());
-		System.out.println(s.redo());
-		s.addItem(52);
-		System.out.println(s.undo());
-		System.out.println(s.undo());
-		System.out.println(s.undo());
-	}
 }
