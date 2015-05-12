@@ -47,7 +47,7 @@ public class Game {
 			finish = isTerminated();
 
 		}
-		//display.frame.repaint();
+
 		System.out.print(joueurCourant.toString());
 
 		if (numberTurn % 2 == 0)
@@ -85,6 +85,7 @@ public class Game {
 			joueurCourant = J2;
 		numberTurn--;
 		System.out.println("Fin annuler "  +map);
+		display.afficherJeu();
 	}
 
 	public void refaire() {
@@ -94,6 +95,7 @@ public class Game {
 		else
 			joueurCourant = J2;
 		numberTurn++;
+		display.afficherJeu();
 	}
 
 	public boolean peutRefaire() {

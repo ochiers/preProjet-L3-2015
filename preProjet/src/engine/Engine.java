@@ -40,9 +40,7 @@ public class Engine {
 				}
 
 			partieCourante.jouer();
-			//
-			// AFFICHER LA VICTOIRE ICI
-			//
+			f.afficherVictoire();
 			gameInProgress = false;
 		}
 	}
@@ -54,6 +52,7 @@ public class Engine {
 
 	public static void main(String args[]) {
 		Engine e = new Engine();
+		e.setAffichage(new FenetreV2(e));
 		e.nouvellePartie( new EasyAI(e, true, "J1"), new MediumAI(e, true, "J2"), 10, 6);
 		e.sauvegarderPartie("./partie.txt");
 		e.begin();
