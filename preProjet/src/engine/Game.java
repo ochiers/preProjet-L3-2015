@@ -40,14 +40,14 @@ public class Game {
 				}
 			}
 			mangerGaufre(caseJouee);
-
+			display.afficherJeu();
 			System.out.print(joueurCourant);
 			System.out.println(" " + caseJouee);
 			numberTurn++;
 			finish = isTerminated();
 
 		}
-		display.afficherJeu();
+		//display.frame.repaint();
 		System.out.print(joueurCourant.toString());
 
 		if (numberTurn % 2 == 0)

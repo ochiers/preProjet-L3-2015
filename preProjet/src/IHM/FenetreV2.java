@@ -34,10 +34,10 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 		
 		JMenu menu1 = new JMenu("Fichier");
 		JMenuItem mi1=new JMenuItem("Nouvelle Partie");
+			mi1.addActionListener(new EcouteurDeBouton(this,mi1.getText()));
 		JMenuItem mi2=new JMenuItem("Sauvegarder");
 		JMenuItem mi3=new JMenuItem("Charger");
-		JMenuItem mi4=new JMenuItem("Quitter");
-		mi1.addActionListener(new EcouteurDeBouton(this,mi1.getText()));
+		JMenuItem mi4=new JMenuItem("Quitter");	
 		menu1.add(mi1);
 		menu1.add(mi2);
 		menu1.add(mi3);
@@ -45,7 +45,9 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 		
 		JMenu menu2 = new JMenu("Edition");
 		JMenuItem mi5=new JMenuItem("Annuler");
+			mi5.addActionListener(new EcouteurDeBouton(this,mi5.getText()));
 		JMenuItem mi6=new JMenuItem("Retablir");
+			mi6.addActionListener(new EcouteurDeBouton(this,mi6.getText()));
 		menu2.add(mi5);
 		menu2.add(mi6);
 		
@@ -105,15 +107,12 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 		frame.setVisible(true);
 	}
 
-	@Override
 	public void afficherJeu() {
 		monDessin.repaint();
 		
 	}
 
-	@Override
 	public void afficherVictoire() {
-		// TODO Auto-generated method stub
 		
 	}
 }

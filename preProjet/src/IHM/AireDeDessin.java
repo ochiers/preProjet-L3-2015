@@ -28,6 +28,10 @@ class AireDeDessin extends JComponent {
         dessinGrilleCouleur(drawable);
         dessinGrille(drawable);
     }
+    
+    public void afficherJoueur(Graphics2D drawable){
+    	
+    }
 
     public void dessinGrilleCouleur(Graphics2D drawable){
     	int width = getSize().width;

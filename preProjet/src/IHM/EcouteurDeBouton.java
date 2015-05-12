@@ -15,7 +15,16 @@ public class EcouteurDeBouton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		switch (label){
 		case "Nouvelle Partie":
-			//fenetre.e.nouvellePartie(fenetre, p1, p2, fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			fenetre.e.nouvellePartie( fenetre.e.partieCourante.J1, fenetre.e.partieCourante.J2, fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			fenetre.monDessin.repaint();
+			break;
+		case "Annuler":
+			fenetre.e.partieCourante.annuler();
+			fenetre.monDessin.repaint();
+			break;
+		case "Retablir":
+			fenetre.e.partieCourante.refaire();
+			fenetre.monDessin.repaint();
 			break;
 		default:
 			break;

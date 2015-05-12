@@ -22,8 +22,6 @@ public class EcouteurDeSouris implements MouseListener{
 		p=aire.conversionGrille(e.getX(),e.getY());	
 			if(aire.fenetre.e.partieCourante.joueurCourant.aiPlayer == false){
 				((HumanPlayer)aire.fenetre.e.partieCourante.joueurCourant).setCaseJouee(p);
-
-
 			}
 	}
 	public void mouseEntered(MouseEvent e) {
