@@ -1,17 +1,14 @@
 package AI;
 
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.Random;
 
 import engine.*;
 
 public class HardAI extends Player {
-	ArrayList<Point> coupsPossibles;
 	
 	public HardAI(Engine engine, boolean isAI, String name) {
 		super(engine, isAI, name);
-		this.coupsPossibles = new ArrayList<Point>();
 	}
 
 	public boolean aucuneCaseLibre(Gaufre g){
@@ -28,11 +25,10 @@ public class HardAI extends Player {
 	}
 	
 	public boolean evaluation(Gaufre g, boolean typeNoeud){
-		boolean b;
-		if (aucuneCaseLibre(g)) return !typeNoeud;
+		boolean b = !typeNoeud;
+		if (aucuneCaseLibre(g)) return b;
 		else if (typeNoeud) { /* tour de l'IA */
-			b = false;
-			for(int i  = 0; i < g.largeur; i++)
+			for(int i  = 0; i < g.largeur; i++){
 				for (int j = 0; j < g.hauteur; j++){
 					if(g.grille[i][j] == Gaufre.LIBRE){
 						Gaufre g2 = new Gaufre(g);
@@ -40,10 +36,10 @@ public class HardAI extends Player {
 						b = b || evaluation(g2, false);
 					}
 				}
+			}
 		}
 		else { /* tour de l'adversaire */
-			b = true;
-			for(int i  = 0; i < g.largeur; i++)
+			for(int i  = 0; i < g.largeur; i++){
 				for (int j = 0; j < g.hauteur; j++){
 					if(g.grille[i][j] == Gaufre.LIBRE){
 						Gaufre g2 = new Gaufre(g);
@@ -51,6 +47,7 @@ public class HardAI extends Player {
 						b = b && evaluation(g2, true);
 					}
 				}
+			}
 		}
 		return b;
 	}
@@ -63,36 +60,25 @@ public class HardAI extends Player {
 			e.printStackTrace();
 		}
 		Gaufre g = leMoteur.partieCourante.map;
-		for(int i = 0; i < g.largeur; i++)
+		for(int i = 0; i < g.largeur; i++){
 			for (int j = 0; j < g.hauteur; j++){
 				//System.out.println("case : " + i + " " + j + " valeur : " + g.grille[i][j]);
 				if(g.grille[i][j] == Gaufre.LIBRE){
 					Gaufre g2 = new Gaufre(g);
 					Point p = new Point(i,j);
 					mangerGaufre(g2, p);
-					boolean b = evaluation(g2, false);
-					//System.out.println(b);
-					if(b) return p;
+					if(evaluation(g2, false)) return p;
 				}
 			}
-		//System.out.println(coupsPossibles.size());
-		if(coupsPossibles.isEmpty()){  /*Si aucun coup ne nous permet de gagner, on joue au hasard en attendant une éventuelle erreur de l'adversaire */
-			Random r = new Random();
-			int x = 0;
-			int y = 0;
-			while(g.grille[x][y] != Gaufre.LIBRE){
-				x = r.nextInt(g.largeur);
-				y = r.nextInt(g.hauteur);
-			}
-			return new Point(x,y);
 		}
-		else {
-			Random r = new Random();
-			int i = r.nextInt(coupsPossibles.size());
-			Point res = coupsPossibles.get(i);
-			coupsPossibles.clear();
-			return res;
+		/*Si aucun coup ne nous permet de gagner, on joue au hasard en attendant une éventuelle erreur de l'adversaire */
+		Random r = new Random();
+		int x = 0;
+		int y = 0;
+		while(g.grille[x][y] != Gaufre.LIBRE){
+			x = r.nextInt(g.largeur);
+			y = r.nextInt(g.hauteur);
 		}
+		return new Point(x,y);
 	}
-
 }
