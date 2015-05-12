@@ -54,6 +54,7 @@ public class HardAI extends Player {
 	
 	@Override
 	public Point play() {
+		System.out.println("IA HARD " + name);
 		try { /* Sleep pour pouvoir visualiser les coups lors d'une partie entre deux IA */
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {

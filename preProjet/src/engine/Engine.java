@@ -103,20 +103,28 @@ public class Engine {
 			String j1 = s.nextLine();
 			String j2 = s.nextLine();
 			int jcour = Integer.parseInt(s.nextLine());
+			int nbturn = Integer.parseInt(s.nextLine());
 			int largeur = Integer.parseInt(s.nextLine());
 			int hauteur = Integer.parseInt(s.nextLine());
 			int map[][] = new int[largeur][hauteur];
 			for (int i = 0; i < hauteur; i++) {
 				String[] str = s.nextLine().split(" ");
+				System.out.println(str[0]);
+				System.out.println(str[1]);
 				for (int j = 0; j < largeur; j++) {
 					map[j][i] = Integer.parseInt(str[j]);
 				}
 			}
 			Player p1 = parsePlayer(j1);
 			Player p2 = parsePlayer(j2);
+			if (this.gameInProgress)
+				stopper();
 			Game g = new Game(affichage, largeur, hauteur, p1, p2);
 			g.joueurCourant = (jcour == 1) ? p1 : p2;
 			g.map.grille = map;
+			g.numberTurn = nbturn;
+			affichage.afficherJeu();
+			this.partieCourante = g;
 
 		} catch (Exception e) {
 			System.err.println("Fichier corrompu");

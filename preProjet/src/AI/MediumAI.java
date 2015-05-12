@@ -40,6 +40,7 @@ public class MediumAI extends Player {
 	
 	@Override
 	public Point play(){
+		System.out.println("IA MEDIUM");
 		Gaufre laGaufre = leMoteur.partieCourante.map;
 		Random r = new Random();
 		int x = 0;
