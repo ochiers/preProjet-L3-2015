@@ -40,14 +40,13 @@ public class Game {
 				}
 			}
 			mangerGaufre(caseJouee);
-
+			display.afficherJeu();
 			System.out.print(joueurCourant);
 			System.out.println(" " + caseJouee);
 			numberTurn++;
 			finish = isTerminated();
 
 		}
-		display.afficherJeu();
 		System.out.print(joueurCourant.toString());
 
 		if (numberTurn % 2 == 0)
@@ -85,6 +84,7 @@ public class Game {
 			joueurCourant = J2;
 		numberTurn--;
 		System.out.println("Fin annuler "  +map);
+		display.afficherJeu();
 	}
 
 	public void refaire() {
@@ -94,6 +94,7 @@ public class Game {
 		else
 			joueurCourant = J2;
 		numberTurn++;
+		display.afficherJeu();
 	}
 
 	public boolean peutRefaire() {
