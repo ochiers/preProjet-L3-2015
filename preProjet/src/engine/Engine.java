@@ -1,5 +1,6 @@
 package engine;
 
+import java.awt.Point;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,6 +20,7 @@ public class Engine {
 	public boolean gameInProgress;
 	public Game partieCourante;
 	public Affichage f;
+
 	public Engine() {
 		this.gameInProgress = false;
 	}
@@ -33,30 +35,35 @@ public class Engine {
 		{
 			while (!gameInProgress)
 				try {
-					Thread.sleep(20);
+					Thread.sleep(50);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 			partieCourante.jouer();
-			f.afficherVictoire();
-			gameInProgress = false;
+			if (!partieCourante.stopped && partieCourante.finish) {
+				f.afficherVictoire();
+				gameInProgress = false;
+			}
 		}
 	}
 
 	public void nouvellePartie(Player p1, Player p2, int largeur, int hauteur) {
-		this.gameInProgress = true;
+
+		if (this.gameInProgress)
+			stopper();
 		this.partieCourante = new Game(this.f, largeur, hauteur, p1, p2);
+		this.gameInProgress = true;
 	}
 
-	public static void main(String args[]) {
-		Engine e = new Engine();
-		e.setAffichage(new FenetreV2(e));
-		e.nouvellePartie( new EasyAI(e, true, "J1"), new MediumAI(e, true, "J2"), 10, 6);
-		e.sauvegarderPartie("./partie.txt");
-		e.begin();
-
+	public void stopper() {
+		if (partieCourante != null) {
+			this.partieCourante.stopped = true;
+			if (this.partieCourante.joueurCourant instanceof HumanPlayer) {
+				((HumanPlayer) this.partieCourante.joueurCourant).setCaseJouee(new Point(0, 0));
+			}
+		}
 	}
 
 	public void sauvegarderPartie(String path) {
@@ -108,9 +115,9 @@ public class Engine {
 			Player p1 = parsePlayer(j1);
 			Player p2 = parsePlayer(j2);
 			Game g = new Game(f, largeur, hauteur, p1, p2);
-			g.joueurCourant = (jcour == 1) ? p1 : p2;  
+			g.joueurCourant = (jcour == 1) ? p1 : p2;
 			g.map.grille = map;
-			
+
 		} catch (Exception e) {
 			System.err.println("Fichier corrompu");
 			e.printStackTrace();
@@ -125,9 +132,8 @@ public class Engine {
 			res = new EasyAI(this, true, a[1]);
 		else if (a[2].equals("MediumAI"))
 			res = new MediumAI(this, true, a[1]);
-		/*
-		 * else if (a[2].equals("HardAI")) res = new HardAI(this, true, a[1]);
-		 */
+		else if (a[2].equals("HardAI"))
+			res = new HardAI(this, true, a[1]);
 		else if (a[2].equals("HumanPlayer"))
 			res = new HumanPlayer(this, false, a[1]);
 		else if (a[2].equals("HumanPlayerConsole"))

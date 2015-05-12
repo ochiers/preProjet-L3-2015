@@ -13,7 +13,7 @@ public class TestEasyAI {
 	@Test
 	public void test() {
 		Engine engine = new Engine();
-		engine.nouvellePartie(null, ia, ia, 5, 5);
+		engine.nouvellePartie(ia, ia, 5, 5);
 		Gaufre gaufre = engine.partieCourante.map;
 		gaufre.grille[4][4] = gaufre.grille[4][3] = gaufre.grille[3][4] = Gaufre.MANGEE;	
 		ia = new EasyAI(engine, true, "CP1");
