@@ -8,15 +8,16 @@ public class Engine {
 
 	public boolean gameInProgress;
 	public Game partieCourante;
+
 	public Engine() {
 		this.gameInProgress = false;
 	}
 
-	public void begin(){
-		
-		while(true) //On suppose que c'est l'IHM qui tue le thread
+	public void begin() {
+
+		while (true) // On suppose que c'est l'IHM qui tue le thread
 		{
-			while(!gameInProgress)
+			while (!gameInProgress)
 				try {
 					Thread.sleep(20);
 				} catch (InterruptedException e) {
@@ -26,24 +27,21 @@ public class Engine {
 
 			partieCourante.jouer();
 			//
-			//AFFICHER LA VICTOIRE ICI 
+			// AFFICHER LA VICTOIRE ICI
 			//
 			gameInProgress = false;
 		}
 	}
-	
-	
-	public void nouvellePartie(Fenetre f, Player p1, Player p2, int largeur, int hauteur)
-	{
+
+	public void nouvellePartie(Fenetre f, Player p1, Player p2, int largeur, int hauteur) {
 		this.gameInProgress = true;
-		this.partieCourante = new Game(f,largeur, hauteur, p1, p2);
+		this.partieCourante = new Game(f, largeur, hauteur, p1, p2);
 	}
-	
-	public static void main(String args[])
-	{
+
+	public static void main(String args[]) {
 		Engine e = new Engine();
-		e.nouvellePartie(null, new MediumAI(e	, true, "1"), new MediumAI(e, true, "2"),4,4);
+		e.nouvellePartie(null, new HumanPlayerConsole(e, true, "J1"), new HumanPlayerConsole(e, true, "J2"), 10, 6);
 		e.begin();
-		
+
 	}
 }
