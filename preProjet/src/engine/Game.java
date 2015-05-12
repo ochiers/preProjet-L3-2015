@@ -12,7 +12,6 @@ public class Game {
 	public int numberTurn;
 	public Fenetre display;
 	private UndoRedo<Gaufre> annuler_refaire;
-	private boolean aUndoRedoHasHappened;
 
 	public Game(Fenetre f, int largeur, int hauteur, Player j1, Player j2) {
 		this.finish = false;
@@ -22,7 +21,6 @@ public class Game {
 		this.numberTurn = 0;
 		display = f;
 		annuler_refaire = new UndoRedo<Gaufre>();
-		aUndoRedoHasHappened = false;
 	}
 
 	public void jouer() {
@@ -41,14 +39,13 @@ public class Game {
 				}
 			}
 			mangerGaufre(caseJouee);
-			aUndoRedoHasHappened = false;
 			System.out.print(joueurCourant);
 			System.out.println(" " + caseJouee);
 			numberTurn++;
 			finish = isTerminated();
 
 		}
-		// display.frame.repaint();
+		display.frame.repaint();
 		System.out.print(joueurCourant.toString());
 
 		if (numberTurn % 2 == 0)
@@ -78,7 +75,6 @@ public class Game {
 	public void annuler() {
 
 		System.out.println("Debut annuler " + map);
-		aUndoRedoHasHappened = true;
 		this.map = annuler_refaire.undo();
 		if (joueurCourant == J2)
 			joueurCourant = J1;
@@ -90,7 +86,6 @@ public class Game {
 	}
 
 	public void refaire() {
-		aUndoRedoHasHappened = true;
 		this.map = annuler_refaire.redo();
 		if (joueurCourant == J2)
 			joueurCourant = J1;
