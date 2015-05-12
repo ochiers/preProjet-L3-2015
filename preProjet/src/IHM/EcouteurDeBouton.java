@@ -28,6 +28,12 @@ public class EcouteurDeBouton implements ActionListener{
 			fenetre.e.partieCourante.refaire();
 			fenetre.monDessin.repaint();
 			break;
+		case "J vs J":
+			System.out.println("test");
+			fenetre.e.nouvellePartie( new HumanPlayer(fenetre.e,false,"Player1"), new HumanPlayer(fenetre.e,false,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			fenetre.monDessin.repaint();
+			break;
+			
 		default:
 			break;
 		}

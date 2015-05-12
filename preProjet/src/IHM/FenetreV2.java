@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
+import AI.*;
 import engine.*;
 
 	 
@@ -53,6 +54,7 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 		
 		JMenu menu3 = new JMenu("Option");
 		JRadioButtonMenuItem jrb1 = new JRadioButtonMenuItem("J vs J");
+			jrb1.addActionListener(new EcouteurDeBouton(this,jrb1.getText()));
 		JRadioButtonMenuItem jrb2 = new JRadioButtonMenuItem("J vs PC1");
 		JRadioButtonMenuItem jrb3 = new JRadioButtonMenuItem("PC1 vs PC2");
 		if(e.partieCourante.J1.aiPlayer && e.partieCourante.J2.aiPlayer)
@@ -73,8 +75,14 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 		JRadioButtonMenuItem jrb4 = new JRadioButtonMenuItem("PC1: Facile");
 		JRadioButtonMenuItem jrb5 = new JRadioButtonMenuItem("PC1: Moyen");
 		JRadioButtonMenuItem jrb6 = new JRadioButtonMenuItem("PC1:Difficile");
-		if(jrb2.isSelected())
-		jrb5.setSelected(true);
+		if(jrb2.isSelected()){
+			if(e.partieCourante.J1 instanceof EasyAI || e.partieCourante.J2 instanceof EasyAI)
+				jrb4.setSelected(true);
+			else if(e.partieCourante.J1 instanceof MediumAI || e.partieCourante.J2 instanceof MediumAI)
+				jrb5.setSelected(true);
+			else if(e.partieCourante.J1 instanceof HardAI || e.partieCourante.J2 instanceof HardAI)
+				jrb6.setSelected(true);
+		}
 		ButtonGroup bg2 = new ButtonGroup();
 		bg2.add(jrb4);
 		bg2.add(jrb5);
@@ -82,7 +90,20 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 		JRadioButtonMenuItem jrb7 = new JRadioButtonMenuItem("PC2: Facile");
 		JRadioButtonMenuItem jrb8 = new JRadioButtonMenuItem("PC2: Moyen");
 		JRadioButtonMenuItem jrb9 = new JRadioButtonMenuItem("PC2:Difficile");
-		jrb8.setSelected(true);
+		if(jrb3.isSelected()){
+			if(e.partieCourante.J1 instanceof EasyAI)
+				jrb4.setSelected(true);
+			else if(e.partieCourante.J1 instanceof MediumAI)
+				jrb5.setSelected(true);
+			else if(e.partieCourante.J1 instanceof HardAI)
+				jrb6.setSelected(true);
+			if(e.partieCourante.J2 instanceof EasyAI)
+				jrb7.setSelected(true);
+			else if(e.partieCourante.J2 instanceof MediumAI)
+				jrb8.setSelected(true);
+			else if(e.partieCourante.J2 instanceof HardAI)
+				jrb9.setSelected(true);
+		}
 		ButtonGroup bg3 = new ButtonGroup();
 		bg3.add(jrb7);
 		bg3.add(jrb8);
@@ -106,6 +127,7 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
  		frame.add(panelAccueil);  
  		frame.pack();
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	public void afficherJeu() {
