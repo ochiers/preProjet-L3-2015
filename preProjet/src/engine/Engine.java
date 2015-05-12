@@ -19,14 +19,14 @@ public class Engine {
 
 	public boolean gameInProgress;
 	public Game partieCourante;
-	public Affichage f;
+	public Affichage affichage;
 
 	public Engine() {
 		this.gameInProgress = false;
 	}
 
 	public void setAffichage(Affichage f) {
-		this.f = f;
+		this.affichage = f;
 	}
 
 	public void begin() {
@@ -43,7 +43,7 @@ public class Engine {
 
 			partieCourante.jouer();
 			if (!partieCourante.stopped && partieCourante.finish) {
-				f.afficherVictoire();
+				affichage.afficherVictoire();
 				gameInProgress = false;
 			}
 		}
@@ -53,7 +53,7 @@ public class Engine {
 
 		if (this.gameInProgress)
 			stopper();
-		this.partieCourante = new Game(this.f, largeur, hauteur, p1, p2);
+		this.partieCourante = new Game(this.affichage, largeur, hauteur, p1, p2);
 		this.gameInProgress = true;
 	}
 
@@ -114,7 +114,7 @@ public class Engine {
 			}
 			Player p1 = parsePlayer(j1);
 			Player p2 = parsePlayer(j2);
-			Game g = new Game(f, largeur, hauteur, p1, p2);
+			Game g = new Game(affichage, largeur, hauteur, p1, p2);
 			g.joueurCourant = (jcour == 1) ? p1 : p2;
 			g.map.grille = map;
 
