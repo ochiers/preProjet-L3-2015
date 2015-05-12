@@ -2,6 +2,7 @@ package engine;
 
 import java.awt.Point;
 
+import IHM.Affichage;
 import IHM.Fenetre;
 
 public class Game {
@@ -10,10 +11,10 @@ public class Game {
 	public Player J1, J2, joueurCourant, winner;
 	public Gaufre map;
 	public int numberTurn;
-	public Fenetre display;
+	public Affichage display;
 	private UndoRedo<Gaufre> annuler_refaire;
 
-	public Game(Fenetre f, int largeur, int hauteur, Player j1, Player j2) {
+	public Game(Affichage f, int largeur, int hauteur, Player j1, Player j2) {
 		this.finish = false;
 		this.J1 = j1;
 		this.J2 = j2;
@@ -46,7 +47,7 @@ public class Game {
 			finish = isTerminated();
 
 		}
-		display.frame.repaint();
+		display.afficherJeu();
 		System.out.print(joueurCourant.toString());
 
 		if (numberTurn % 2 == 0)

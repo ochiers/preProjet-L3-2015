@@ -10,16 +10,21 @@ import java.util.Scanner;
 import AI.EasyAI;
 import AI.HardAI;
 import AI.MediumAI;
+import IHM.Affichage;
 import IHM.Fenetre;
+import IHM.FenetreV2;
 
 public class Engine {
 
 	public boolean gameInProgress;
 	public Game partieCourante;
-	public Fenetre f;
-	public Engine(Fenetre f) {
+	public Affichage f;
+	public Engine() {
 		this.gameInProgress = false;
-		this.f=f;
+	}
+
+	public void setAffichage(Affichage f) {
+		this.f = f;
 	}
 
 	public void begin() {
@@ -42,14 +47,14 @@ public class Engine {
 		}
 	}
 
-	public void nouvellePartie(Fenetre f, Player p1, Player p2, int largeur, int hauteur) {
+	public void nouvellePartie(Player p1, Player p2, int largeur, int hauteur) {
 		this.gameInProgress = true;
-		this.partieCourante = new Game(f, largeur, hauteur, p1, p2);
+		this.partieCourante = new Game(this.f, largeur, hauteur, p1, p2);
 	}
 
 	public static void main(String args[]) {
-		Engine e = new Engine(new Fenetre());
-		e.nouvellePartie(e.f, new EasyAI(e, true, "J1"), new MediumAI(e, true, "J2"), 10, 6);
+		Engine e = new Engine();
+		e.nouvellePartie( new EasyAI(e, true, "J1"), new MediumAI(e, true, "J2"), 10, 6);
 		e.sauvegarderPartie("./partie.txt");
 		e.begin();
 
