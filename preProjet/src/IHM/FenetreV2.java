@@ -73,6 +73,7 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 		JRadioButtonMenuItem jrb4 = new JRadioButtonMenuItem("PC1: Facile");
 		JRadioButtonMenuItem jrb5 = new JRadioButtonMenuItem("PC1: Moyen");
 		JRadioButtonMenuItem jrb6 = new JRadioButtonMenuItem("PC1:Difficile");
+		if(jrb2.isSelected())
 		jrb5.setSelected(true);
 		ButtonGroup bg2 = new ButtonGroup();
 		bg2.add(jrb4);
