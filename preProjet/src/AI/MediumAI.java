@@ -43,9 +43,9 @@ public class MediumAI extends Player {
 		Random r = new Random();
 		int x = 0;
 		int y = 0;
-		Point res = coupGagnant();
+		Point res = coupGagnant(); // On joue un coup gagnant si il en existe au moins un
 		if(res != null) return res;
-		while(laGaufre.grille[x][y] != Gaufre.LIBRE || existeMeilleurCoup(x,y)){
+		while(laGaufre.grille[x][y] != Gaufre.LIBRE || existeMeilleurCoup(x,y)){ // On "évite" les coups perdants
 			x = r.nextInt(laGaufre.largeur);
 			y = r.nextInt(laGaufre.hauteur);
 		}
