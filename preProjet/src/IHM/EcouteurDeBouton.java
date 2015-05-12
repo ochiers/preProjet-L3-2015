@@ -3,6 +3,8 @@ package IHM;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import engine.HumanPlayer;
+
 public class EcouteurDeBouton implements ActionListener{
 	String label;
 	FenetreV2 fenetre;
@@ -15,7 +17,10 @@ public class EcouteurDeBouton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		switch (label){
 		case "Nouvelle Partie":
-			fenetre.e.nouvellePartie( fenetre.e.partieCourante.J1, fenetre.e.partieCourante.J2, fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			fenetre.e.nouvellePartie( new HumanPlayer(fenetre.e,false,"player1"), new HumanPlayer(fenetre.e,false,"player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+
+			String message="C'est au tour de  de jouer";
+			System.out.println(message);
 			fenetre.monDessin.repaint();
 			break;
 		case "Annuler":

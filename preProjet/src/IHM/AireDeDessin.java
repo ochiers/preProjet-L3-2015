@@ -25,13 +25,17 @@ class AireDeDessin extends JComponent {
         drawable.setPaint(Color.white);
         drawable.fillRect(0, 0, width, height);
         drawable.setPaint(Color.black);
+   //     afficherJoueur(drawable);
         dessinGrilleCouleur(drawable);
         dessinGrille(drawable);
+
     }
     
-    public void afficherJoueur(Graphics2D drawable){
+  /*  public void afficherJoueur(Graphics2D drawable){
+    	String message="C'est au tour de "+fenetre.e.partieCourante.joueurCourant.name+" de jouer";
+    	drawable.drawString(message, 10, 20);
     	
-    }
+    }*/
 
     public void dessinGrilleCouleur(Graphics2D drawable){
     	int width = getSize().width;
