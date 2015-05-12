@@ -3,11 +3,11 @@ package engine;
 import java.awt.Point;
 
 import IHM.Affichage;
-import IHM.Fenetre;
 
 public class Game {
 
 	public boolean finish;
+	public boolean stopped;
 	public Player J1, J2, joueurCourant, winner;
 	public Gaufre map;
 	public int numberTurn;
@@ -18,6 +18,7 @@ public class Game {
 		this.finish = false;
 		this.J1 = j1;
 		this.J2 = j2;
+		this.joueurCourant = j1;
 		this.map = new Gaufre(largeur, hauteur);
 		this.numberTurn = 0;
 		display = f;
@@ -26,10 +27,10 @@ public class Game {
 
 	public void jouer() {
 
-		while (!finish) {
+		while (!finish && !stopped) {
 			Point caseJouee = null;
 			annuler_refaire.addItem(new Gaufre(map));
-			while (isCaseInvalide(caseJouee)) {
+			while (!stopped && isCaseInvalide(caseJouee)) {
 
 				if (numberTurn % 2 == 0) {
 					joueurCourant = J1;
@@ -47,13 +48,14 @@ public class Game {
 			finish = isTerminated();
 
 		}
+		if (!stopped) {
+			System.out.print(joueurCourant.toString());
 
-		System.out.print(joueurCourant.toString());
-
-		if (numberTurn % 2 == 0)
-			winner = J1;
-		else
-			winner = J2;
+			if (numberTurn % 2 == 0)
+				winner = J1;
+			else
+				winner = J2;
+		}
 	}
 
 	private void mangerGaufre(Point caseJouee) {
@@ -84,7 +86,7 @@ public class Game {
 		else
 			joueurCourant = J2;
 		numberTurn--;
-		System.out.println("Fin annuler "  +map);
+		System.out.println("Fin annuler " + map);
 		display.afficherJeu();
 	}
 

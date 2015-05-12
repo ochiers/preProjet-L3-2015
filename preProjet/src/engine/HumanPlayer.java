@@ -18,7 +18,8 @@ public class HumanPlayer extends Player {
 		caseJouee = null;
 		while (!hasPlayed && caseJouee == null) {
 			try {
-				Thread.sleep(20);
+				//System.out.println(name + " attend");
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
