@@ -8,9 +8,10 @@ import javax.swing.*;
 import engine.*;
 
 	 
-public class FenetreV2 extends Fenetre implements Runnable {
+public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 	public JFrame frame = new JFrame(" Gaufre Empoisonnée ");
 	Engine e;
+	AireDeDessin monDessin;
 	
 	public FenetreV2(Engine engine){
 		e=engine;
@@ -24,7 +25,7 @@ public class FenetreV2 extends Fenetre implements Runnable {
 		JPanel panelAccueil = new JPanel();
 		
 			//Ajout grille
-		AireDeDessin monDessin = new AireDeDessin(this,e.partieCourante.map.largeur,e.partieCourante.map.hauteur);
+		monDessin = new AireDeDessin(this,e.partieCourante.map.largeur,e.partieCourante.map.hauteur);
 		monDessin.addMouseListener(new EcouteurDeSouris(monDessin));
  		panelAccueil.add(monDessin);
  		
@@ -36,6 +37,7 @@ public class FenetreV2 extends Fenetre implements Runnable {
 		JMenuItem mi2=new JMenuItem("Sauvegarder");
 		JMenuItem mi3=new JMenuItem("Charger");
 		JMenuItem mi4=new JMenuItem("Quitter");
+		mi1.addActionListener(new EcouteurDeBouton(this,mi1.getText()));
 		menu1.add(mi1);
 		menu1.add(mi2);
 		menu1.add(mi3);
@@ -51,7 +53,12 @@ public class FenetreV2 extends Fenetre implements Runnable {
 		JRadioButtonMenuItem jrb1 = new JRadioButtonMenuItem("J vs J");
 		JRadioButtonMenuItem jrb2 = new JRadioButtonMenuItem("J vs PC1");
 		JRadioButtonMenuItem jrb3 = new JRadioButtonMenuItem("PC1 vs PC2");
-		jrb1.setSelected(true);
+		if(e.partieCourante.J1.aiPlayer && e.partieCourante.J2.aiPlayer)
+			jrb3.setSelected(true);
+		else if(!e.partieCourante.J1.aiPlayer && !e.partieCourante.J2.aiPlayer)
+			jrb1.setSelected(true);
+		else 
+			jrb2.setSelected(true);
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(jrb1);
 		bg.add(jrb2);
@@ -93,7 +100,20 @@ public class FenetreV2 extends Fenetre implements Runnable {
 		menuBar.add(menu4);
 		
 		frame.setJMenuBar(menuBar);
- 		frame.add(panelAccueil);   
+ 		frame.add(panelAccueil);  
+ 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	@Override
+	public void afficherJeu() {
+		monDessin.repaint();
+		
+	}
+
+	@Override
+	public void afficherVictoire() {
+		// TODO Auto-generated method stub
+		
 	}
 }

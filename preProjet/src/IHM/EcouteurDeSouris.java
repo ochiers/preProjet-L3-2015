@@ -1,5 +1,6 @@
 package IHM;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -13,22 +14,16 @@ public class EcouteurDeSouris implements MouseListener{
 		aire=a;
 	}
 	
-	public boolean estJouable(){
-		
-		return true;
-	}
+	
 	
 	public void mouseClicked(MouseEvent e) {
-		//if(estJouable()){
-			Point p=new Point();
-			p.x=1;
-			p.y=1;
+		
+		Point p=new Point();
+		p=aire.conversionGrille(e.getX(),e.getY());	
 			if(aire.fenetre.e.partieCourante.joueurCourant.aiPlayer == false){
 				((HumanPlayer)aire.fenetre.e.partieCourante.joueurCourant).setCaseJouee(p);
-				System.out.println("bonjour");
-			}
-			else{
-				System.out.println("test");
+
+
 			}
 	}
 	public void mouseEntered(MouseEvent e) {

@@ -37,6 +37,7 @@ public class Game {
 			}
 			System.out.println(caseJouee);
 			mangerGaufre(caseJouee);
+			//display.repaint();
 			numberTurn++;
 			finish = isTerminated();
 
