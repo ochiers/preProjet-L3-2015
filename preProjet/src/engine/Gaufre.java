@@ -9,13 +9,23 @@ public class Gaufre {
 	public static final int MANGEE = 2;
 	public final int hauteur;
 	public final int largeur;
-	public final int[][] grille;
+	public int[][] grille;
 	
 	public Gaufre(int tailleLargeur, int tailleHauteur){	
 		this.grille = new int[tailleLargeur][tailleHauteur];
 		this.hauteur = tailleHauteur;
 		this.largeur = tailleLargeur;
 		initialisation();
+	}
+	
+	public Gaufre(Gaufre g)
+	{
+		this.hauteur = g.hauteur;
+		this.largeur = g.largeur;
+		this.grille = new int[largeur][hauteur];
+		for(int i  = 0; i < this.largeur; i++)
+			for (int j = 0; j < this.hauteur; j++)
+				this.grille[i][j] = g.grille[i][j];
 	}
 	
 	public void initialisation() {
@@ -31,6 +41,17 @@ public class Gaufre {
 			System.err.println("Case " + laCase + " invalide, ou etat " + etat + " invalide");
 		else
 			this.grille[laCase.x][laCase.y] = etat;
+	}
+	
+	public String toString(){
+		
+		String res = "Gaufre :";
+		for(int i = 0; i<hauteur;i++){
+			res = res +"\n";
+			for(int j = 0 ; j<largeur;j++)
+				res = res + " " + grille[j][i] + " |";
+		}
+		return res;
 	}
 
 }

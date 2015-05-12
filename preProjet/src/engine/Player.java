@@ -19,6 +19,8 @@ public abstract class Player {
 	public String toString()
 	{
 		
-		return "Je suis " + name;
+		return "" + aiPlayer + "#" + name;
 	}
+	
+	
 }
