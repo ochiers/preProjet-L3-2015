@@ -37,6 +37,7 @@ public class UndoRedo<T> {
 	public boolean canRedo() {
 		return !refaire.isEmpty();
 	}
+	
 
 	public boolean canUndo() {
 		return !annuler.isEmpty() && annuler.size() >= 2;

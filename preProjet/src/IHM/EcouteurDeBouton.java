@@ -3,6 +3,11 @@ package IHM;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFileChooser;
+
+import engine.*;
+import AI.*;
+
 public class EcouteurDeBouton implements ActionListener{
 	String label;
 	FenetreV2 fenetre;
@@ -18,6 +23,19 @@ public class EcouteurDeBouton implements ActionListener{
 			fenetre.e.nouvellePartie( fenetre.e.partieCourante.J1, fenetre.e.partieCourante.J2, fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
 			fenetre.monDessin.repaint();
 			break;
+		case "Sauvegarder":
+			JFileChooser save = new JFileChooser();
+			save.showSaveDialog(fenetre.frame);
+			fenetre.e.sauvegarderPartie(save.getSelectedFile().getAbsolutePath());
+			break;
+		case "Charger":
+			JFileChooser load = new JFileChooser();
+			load.showOpenDialog(fenetre.frame);
+			fenetre.e.chargerPartie(load.getSelectedFile().getAbsolutePath());
+			break;
+		case "Quitter":
+			System.exit(0);
+			break;
 		case "Annuler":
 			fenetre.e.partieCourante.annuler();
 			fenetre.monDessin.repaint();
@@ -26,6 +44,42 @@ public class EcouteurDeBouton implements ActionListener{
 			fenetre.e.partieCourante.refaire();
 			fenetre.monDessin.repaint();
 			break;
+		case "J1 vs J2":
+			fenetre.e.nouvellePartie( new HumanPlayer(fenetre.e,false,"Player1"), new HumanPlayer(fenetre.e,false,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			fenetre.monDessin.repaint();
+			break;
+		case "J1 vs PC1":
+			if(fenetre.pc1==1)
+				fenetre.e.nouvellePartie( new HumanPlayer(fenetre.e,false,"Player1"), new EasyAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==2)
+				fenetre.e.nouvellePartie( new HumanPlayer(fenetre.e,false,"Player1"), new MediumAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==3)
+				fenetre.e.nouvellePartie( new HumanPlayer(fenetre.e,false,"Player1"), new HardAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			fenetre.monDessin.repaint();
+			break;
+		case "PC1 vs PC2":
+			if(fenetre.pc1==1 && fenetre.pc2==1)
+				fenetre.e.nouvellePartie( new EasyAI(fenetre.e,true,"Player1"), new EasyAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==2 && fenetre.pc2==1)
+				fenetre.e.nouvellePartie( new MediumAI(fenetre.e,true,"Player1"), new EasyAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==3 && fenetre.pc2==1)
+				fenetre.e.nouvellePartie( new HardAI(fenetre.e,true,"Player1"), new EasyAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			if(fenetre.pc1==1 && fenetre.pc2==2)
+				fenetre.e.nouvellePartie( new EasyAI(fenetre.e,true,"Player1"), new MediumAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==2 && fenetre.pc2==2)
+				fenetre.e.nouvellePartie( new MediumAI(fenetre.e,true,"Player1"), new MediumAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==3 && fenetre.pc2==2)
+				fenetre.e.nouvellePartie( new HardAI(fenetre.e,true,"Player1"), new MediumAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			if(fenetre.pc1==1 && fenetre.pc2==3)
+				fenetre.e.nouvellePartie( new EasyAI(fenetre.e,true,"Player1"), new HardAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==2 && fenetre.pc2==3)
+				fenetre.e.nouvellePartie( new MediumAI(fenetre.e,true,"Player1"), new HardAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			else if(fenetre.pc1==3 && fenetre.pc2==3)
+				fenetre.e.nouvellePartie( new HardAI(fenetre.e,true,"Player1"), new HardAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
+			fenetre.monDessin.repaint();
+			break;
+			
+			
 		default:
 			break;
 		}
