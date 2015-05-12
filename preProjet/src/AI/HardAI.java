@@ -1,17 +1,14 @@
 package AI;
 
 import java.awt.Point;
-import java.util.ArrayList;
 import java.util.Random;
 
 import engine.*;
 
 public class HardAI extends Player {
-	ArrayList<Point> coupsPossibles;
 	
 	public HardAI(Engine engine, boolean isAI, String name) {
 		super(engine, isAI, name);
-		this.coupsPossibles = new ArrayList<Point>();
 	}
 
 	public boolean aucuneCaseLibre(Gaufre g){
