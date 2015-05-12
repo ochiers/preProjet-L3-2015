@@ -8,7 +8,6 @@ import AI.*;
 
 public class JeuGaufreV2 {
 	public static void main(String argv[]) throws InterruptedException{
-		
 		Engine e=new Engine();
 		
 		Player p1=new HumanPlayer(e,false,"player1");

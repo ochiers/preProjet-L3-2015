@@ -42,8 +42,6 @@ public class Game {
 			}
 			mangerGaufre(caseJouee);
 			display.afficherJeu();
-			System.out.print(joueurCourant);
-			System.out.println(" " + caseJouee);
 			numberTurn++;
 			finish = isTerminated();
 
@@ -78,7 +76,6 @@ public class Game {
 
 	public void annuler() {
 
-		System.out.println("Debut annuler " + map);
 		this.map = annuler_refaire.undo();
 		if (joueurCourant instanceof HumanPlayer)
 			((HumanPlayer) joueurCourant).setCaseJouee(new Point(0, 0));
@@ -87,7 +84,6 @@ public class Game {
 		else
 			joueurCourant = J2;
 		numberTurn--;
-		System.out.println("Fin annuler " + map);
 		display.afficherJeu();
 	}
 
