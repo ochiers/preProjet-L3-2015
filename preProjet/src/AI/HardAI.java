@@ -57,6 +57,11 @@ public class HardAI extends Player {
 	
 	@Override
 	public Point play() {
+		try { /* Sleep pour pouvoir visualiser les coups lors d'une partie entre deux IA */
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		Gaufre g = leMoteur.partieCourante.map;
 		for(int i = 0; i < g.largeur; i++)
 			for (int j = 0; j < g.hauteur; j++){
@@ -67,11 +72,11 @@ public class HardAI extends Player {
 					mangerGaufre(g2, p);
 					boolean b = evaluation(g2, false);
 					//System.out.println(b);
-					if(b) coupsPossibles.add(p);
+					if(b) return p;
 				}
 			}
 		//System.out.println(coupsPossibles.size());
-		if(coupsPossibles.isEmpty()){
+		if(coupsPossibles.isEmpty()){  /*Si aucun coup ne nous permet de gagner, on joue au hasard en attendant une éventuelle erreur de l'adversaire */
 			Random r = new Random();
 			int x = 0;
 			int y = 0;

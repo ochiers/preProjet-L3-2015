@@ -23,7 +23,11 @@ public class EasyAI extends Player {
 			x = r.nextInt(g.largeur);
 			y = r.nextInt(g.hauteur);
 		}
-		
+		try { /* Sleep pour pouvoir visualiser les coups lors d'une partie entre deux IA */
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return new Point(x,y);
 	}
 }

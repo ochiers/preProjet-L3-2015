@@ -2,6 +2,7 @@ package AI;
 
 import java.awt.Point;
 import java.util.Random;
+
 import engine.*;
 
 public class MediumAI extends Player {
@@ -43,13 +44,17 @@ public class MediumAI extends Player {
 		Random r = new Random();
 		int x = 0;
 		int y = 0;
-		Point res = coupGagnant(); // On joue un coup gagnant si il en existe au moins un
+		Point res = coupGagnant(); /* On joue un coup gagnant si il en existe au moins un */
 		if(res != null) return res;
-		while(laGaufre.grille[x][y] != Gaufre.LIBRE || existeMeilleurCoup(x,y)){ // On "évite" les coups perdants
+		while(laGaufre.grille[x][y] != Gaufre.LIBRE || existeMeilleurCoup(x,y)){ /* On joue au hasard en "évitant" les coups perdants */
 			x = r.nextInt(laGaufre.largeur);
 			y = r.nextInt(laGaufre.hauteur);
 		}
-		
+		try { /* Sleep pour pouvoir visualiser les coups lors d'une partie entre deux IA */
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return new Point(x,y);
 	}
 }

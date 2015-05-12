@@ -11,7 +11,7 @@ public class JeuGaufreV2 {
 		
 		Engine e=new Engine();
 		HardAI p1=new HardAI(e,true,"player1");
-		EasyAI p2=new EasyAI(e,true,"player2");
+		MediumAI p2=new MediumAI(e,true,"player2");
 		
 		FenetreV2 f=new FenetreV2(e);
 		e.setAffichage(f);
