@@ -166,7 +166,6 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 	}
 
 	public void afficherJeu() {
-		//monDessin.victoire=false;
 		if(e.partieCourante.peutAnnuler())
 			mi5.setEnabled(true);
 		else
@@ -181,8 +180,6 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 	}
 
 	public void afficherVictoire() {
-	//	monDessin.victoire=true;
-	//	monDessin.repaint();
-		//monDessin.victoire=false;
+		monDessin.fini=true;
 	}
 }
