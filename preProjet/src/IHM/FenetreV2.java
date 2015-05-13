@@ -87,7 +87,7 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 			jrb4.addActionListener(new EcouteurDeBouton(this,jrb4.getText()));
 		JRadioButtonMenuItem jrb5 = new JRadioButtonMenuItem("PC1: Moyen");
 			jrb5.addActionListener(new EcouteurDeBouton(this,jrb5.getText()));
-		JRadioButtonMenuItem jrb6 = new JRadioButtonMenuItem("PC1:Difficile");
+		JRadioButtonMenuItem jrb6 = new JRadioButtonMenuItem("PC1: Difficile");
 			jrb6.addActionListener(new EcouteurDeBouton(this,jrb6.getText()));
 		if(jrb2.isSelected()){
 			if(e.partieCourante.J1 instanceof EasyAI || e.partieCourante.J2 instanceof EasyAI){
@@ -115,7 +115,7 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 			jrb7.addActionListener(new EcouteurDeBouton(this,jrb7.getText()));
 		JRadioButtonMenuItem jrb8 = new JRadioButtonMenuItem("PC2: Moyen");
 			jrb8.addActionListener(new EcouteurDeBouton(this,jrb8.getText()));
-		JRadioButtonMenuItem jrb9 = new JRadioButtonMenuItem("PC2:Difficile");
+		JRadioButtonMenuItem jrb9 = new JRadioButtonMenuItem("PC2: Difficile");
 			jrb9.addActionListener(new EcouteurDeBouton(this,jrb9.getText()));
 		if(jrb3.isSelected()){
 			if(e.partieCourante.J1 instanceof EasyAI){

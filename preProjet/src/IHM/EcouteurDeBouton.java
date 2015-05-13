@@ -79,27 +79,25 @@ public class EcouteurDeBouton implements ActionListener{
 			fenetre.monDessin.repaint();
 			break;
 		case "PC1: Facile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc1=1;
+
 			break;
 		case "PC1: Moyen":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc1=2;
+
 			break;
 		case "PC1: Difficile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc1=3;
+
 			break;
 		case "PC2: Facile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc2=1;
+
 			break;
 		case "PC2: Moyen":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc2=2;
 			break;
 		case "PC2: Difficile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc2=3;
 			break;
 		default:
