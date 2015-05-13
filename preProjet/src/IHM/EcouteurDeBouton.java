@@ -58,6 +58,7 @@ public class EcouteurDeBouton implements ActionListener{
 			fenetre.monDessin.repaint();
 			break;
 		case "PC1 vs PC2":
+			System.out.println("pc1 = " +fenetre.pc1+ " et pc2 = " + fenetre.pc2);
 			if(fenetre.pc1==1 && fenetre.pc2==1)
 				fenetre.e.nouvellePartie( new EasyAI(fenetre.e,true,"Player1"), new EasyAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
 			else if(fenetre.pc1==2 && fenetre.pc2==1)
@@ -78,30 +79,26 @@ public class EcouteurDeBouton implements ActionListener{
 				fenetre.e.nouvellePartie( new HardAI(fenetre.e,true,"Player1"), new HardAI(fenetre.e,true,"Player2"), fenetre.e.partieCourante.map.largeur, fenetre.e.partieCourante.map.hauteur);
 			fenetre.monDessin.repaint();
 			break;
+
 		case "PC1: Facile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc1=1;
 			break;
 		case "PC1: Moyen":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc1=2;
 			break;
 		case "PC1: Difficile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc1=3;
 			break;
 		case "PC2: Facile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc2=1;
 			break;
 		case "PC2: Moyen":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc2=2;
 			break;
 		case "PC2: Difficile":
-			System.out.println("test "+fenetre.pc1);
 			fenetre.pc2=3;
 			break;
+
 		default:
 			break;
 		}
