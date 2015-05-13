@@ -82,19 +82,15 @@ public class EcouteurDeBouton implements ActionListener{
 
 		case "PC1: Facile":
 			fenetre.pc1=1;
-
 			break;
 		case "PC1: Moyen":
 			fenetre.pc1=2;
-
 			break;
 		case "PC1: Difficile":
 			fenetre.pc1=3;
-
 			break;
 		case "PC2: Facile":
 			fenetre.pc2=1;
-
 			break;
 		case "PC2: Moyen":
 			fenetre.pc2=2;
