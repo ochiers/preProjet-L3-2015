@@ -37,7 +37,6 @@ public class Engine {
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -89,7 +88,6 @@ public class Engine {
 			w.write(str);
 			w.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -123,8 +121,8 @@ public class Engine {
 			g.joueurCourant = (jcour == 1) ? p1 : p2;
 			g.map.grille = map;
 			g.numberTurn = nbturn;
-			affichage.afficherJeu();
 			this.partieCourante = g;
+			affichage.afficherJeu();
 
 		} catch (Exception e) {
 			System.err.println("Fichier corrompu");
@@ -133,7 +131,7 @@ public class Engine {
 
 	}
 
-	public Player parsePlayer(String str) {
+	private Player parsePlayer(String str) {
 		Player res = null;
 		String[] a = str.split("#");
 		if (a[2].equals("EasyAI"))
