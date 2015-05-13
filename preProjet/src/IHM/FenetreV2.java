@@ -188,6 +188,6 @@ public class FenetreV2 extends Fenetre implements Runnable,Affichage {
 	}
 
 	public void afficherVictoire() {
-		monDessin.fini=true;
+		monDessin.repaint();
 	}
 }
