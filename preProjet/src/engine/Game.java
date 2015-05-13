@@ -47,7 +47,7 @@ public class Game {
 
 		}
 		if (!stopped) {
-			System.out.print(joueurCourant.toString());
+			System.out.print(joueurCourant.toString() + "a gagné");
 
 			if (numberTurn % 2 == 0)
 				winner = J1;

@@ -7,7 +7,6 @@ import javax.swing.*;
 class AireDeDessin extends JComponent {
     int x,y;
     FenetreV2 fenetre;
-    boolean fini=false;
 
     
     public AireDeDessin(FenetreV2 f,int largeur,int hauteur) {
@@ -26,11 +25,10 @@ class AireDeDessin extends JComponent {
         drawable.setPaint(Color.white);
         drawable.fillRect(0, 0, width, height);
         drawable.setPaint(Color.black);
-        if(!fini)
+        if(fenetre.e.partieCourante.winner == null)
         	afficherJoueur(drawable);
         else{
         	afficherGagnant(drawable);
-        	fini=false;
         }
         dessinGrilleCouleur(drawable);
         dessinGrille(drawable);
